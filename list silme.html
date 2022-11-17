@@ -1,0 +1,96 @@
+<html>
+<style>
+@keyframes rainbowtext{
+	0%{color:#428af5;border-color:#428af5;}
+	50%{color:#f58742;border-color:#f58742;}
+	100%{color:#428af5;border-color:#428af5;}
+}
+@keyframes rainbowborder{
+	0%{border-color:#428af5;}
+	50%{border-color:#f58742;}
+	100%{border-color:#428af5;}
+}
+.object{
+	background-size:50% 50%;
+	position: relative;
+	font-size:10px;
+	margin:1px 1px;
+	color: lightgreen;
+	text-align:center;
+	display: table;
+	background-color:#300447;
+	border-radius:10px;
+	padding: 10px;
+	border-style:solid;
+	border-color:black;
+	animation-name:rainbowtext;
+	animation-duration:2s;
+	animation-iteration-count:infinite;
+}
+.addbutton{
+	color: lightblue;
+	background-color:#300447;
+	border-radius:10px;
+	padding: 10px;
+	animation-name: rainbowtext;
+	animation-iteration-count: infinite;
+	animation-duration: 2s;
+	position: absolute;
+}
+.generatebutton{
+	color: lightblue;
+	background-color:#300447;
+	border-radius:10px;
+	padding: 10px;
+	animation-name: rainbowtext;
+	animation-iteration-count: infinite;
+	animation-duration: 2s;
+	position: relative;
+	left:40px;
+}
+
+.inputbox{
+	padding:10;
+	background-color:#300447;
+	color: lightblue;
+	border-radius:10px;
+	animation-name:rainbowtext;
+	animation-duration:2s;
+	animation-iteration-count:infinite;
+}
+</style>
+<body>
+
+
+<input type="text" class="inputbox" id="newobjvalue"></input>
+<button class="addbutton" onclick="newobj()">+</button>
+<button class="generatebutton" onclick="generate()">Generate!</button>
+<div id="divv"> </div>
+<br>
+
+
+</body>
+<script>
+const list = []
+function newobj(){
+	if (document.getElementById("newobjvalue").value != ""){
+		list.push(document.getElementById("newobjvalue").value);
+		document.getElementById("newobjvalue").value = "";
+		console.log(list);}
+}
+function newel(elname){
+	const div = document.getElementById("divv");
+	const newelement = document.createElement("div");
+	newelement.classList = "object";
+	const newcontent = document.createTextNode(elname);
+	newelement.appendChild(newcontent);
+	div.appendChild(newelement)
+}
+
+function generate(){
+	list.forEach(newel)
+}
+</script>
+
+
+</html>
